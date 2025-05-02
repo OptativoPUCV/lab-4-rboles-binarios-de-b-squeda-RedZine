@@ -55,6 +55,7 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
 
+
 }
 
 TreeNode * minimum(TreeNode * x){
@@ -80,7 +81,22 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
-    return NULL;
+    TreeNode* aux = tree->root; // Creamos un auxiliar para recorrer
+
+    while(aux != NULL){ // Se recorre el árbol en busca de la key 0.0
+        if (is_equal(tree, key, aux->pair->key)){
+            tree->current = aux; // actualizamos el current pe
+            return aux->pair; // se retorna el par encontrado
+        }
+
+        if (tree->lower_than(key, aux->pair->key)) aux = aux->left; // se crean condiciones para decidir el camino left o right
+        else{
+            aux = aux->right;
+        }
+    }
+
+
+    return NULL; // retornamos Null si no se encuentra la key :c
 }
 
 
