@@ -82,8 +82,11 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 }
 
 TreeNode * minimum(TreeNode * x){
+    if (x == NULL) return NULL;
+    // se mueve a la izquierda del arbol hasta el nodo más chikito ;;
+    while(x->left != NULL) x = x->left;
 
-    return NULL;
+    return x;
 }
 
 
