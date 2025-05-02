@@ -38,8 +38,18 @@ TreeNode * createTreeNode(void* key, void * value) {
 
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 
-    //new->lower_than = lower_than;
-    return NULL;
+    TreeMap *map = (TreeMap*) malloc(sizeof(TreeMap));  // Se reserva memoria para el mapa
+    if (map == NULL) return NULL;
+
+    // Iniciamos los punteros en Null
+
+    map->root = NULL;
+    map->current = NULL;
+
+
+    map->lower_than = lower_than; // colocamos el comparar 
+
+    return map; // retornamos el mapa :D
 }
 
 
