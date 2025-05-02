@@ -36,3 +36,9 @@ treemap.c:100:65: error: statement with no effect [-Werror=unused-value]
                                                                  ^
 cc1.exe: all warnings being treated as errors
 60a14c9
+ju.,  1 de may. de 2025 22:26:29: 
+ treemap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  18|3
+total_score: 40/70
+de8b99e
