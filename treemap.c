@@ -166,9 +166,38 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree->root == NULL) return NULL;
+
+    TreeNode* node = minimum(tree->root); // Encontramos el nodo más chikito
+
+    tree->current = node; 
+
+    return node->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree->current == NULL) return NULL;
+
+    TreeNode* node = tree->current;
+
+    // Si existe un sub arbol derecho, buscamos su nodo más chikito 0.0
+    if (node->right != NULL){
+        node = minimum(node->right);
+        tree->current = node;
+        return node->pair;
+    }
+
+    // Si no existe, subimos por el arbol hasta encontrar el siguiente nodo -w-
+
+    TreeNode* parent = node->parent;
+    while (parent != NULL && node == parent->right){
+        node = parent;
+        parent = parent->parent;
+    }
+
+    tree->current = parent;
+
+    if (parent == NULL) return NULL;
+
+    return parent->pair;
 }

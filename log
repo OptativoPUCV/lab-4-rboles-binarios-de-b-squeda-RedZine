@@ -42,3 +42,9 @@ ju.,  1 de may. de 2025 22:26:29:
  tests:  18|3
 total_score: 40/70
 de8b99e
+ju.,  1 de may. de 2025 22:39:26: 
+ treemap.c | 33 +++++++++++++++++++++++++++++++--
+ 1 file changed, 31 insertions(+), 2 deletions(-)
+ tests:  25|1
+total_score: 60/70
+87f228d
