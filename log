@@ -22,3 +22,17 @@ ju.,  1 de may. de 2025 22:07:34:
  tests:  15|4
 total_score: 25/70
 c9f0d8d
+ju.,  1 de may. de 2025 22:24:01: 
+ treemap.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+Compilation failed
+In file included from test.c:4:0:
+treemap.c: In function 'removeNode':
+treemap.c:99:46: error: statement with no effect [-Werror=unused-value]
+         if (node->parent == NULL) tree->root == NULL;
+                                              ^
+treemap.c:100:65: error: statement with no effect [-Werror=unused-value]
+         else if (node->parent->left == node) node->parent->left == NULL;
+                                                                 ^
+cc1.exe: all warnings being treated as errors
+60a14c9
