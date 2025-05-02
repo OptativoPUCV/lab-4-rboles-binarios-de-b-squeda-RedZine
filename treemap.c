@@ -138,9 +138,6 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 }
 
-
-
-
 Pair * searchTreeMap(TreeMap * tree, void* key) {
     TreeNode* aux = tree->root; // Creamos un auxiliar para recorrer
 
@@ -162,7 +159,26 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+    TreeNode *aux = tree->root;
+    TreeNode *ub_node = NULL;
+
+    while (aux != NULL){ // se recorre el arbol buscando el upperbound
+        if (is_equal(tree, key, aux->pair->key)){ 
+            tree->current = aux;
+            return aux->pair; // si encontramos su key lo retornamos 
+        }
+
+        if (tree->lower_than(key, aux->pair->key)){ // si la key es menor guardamos este nodo a candidato
+            ub_node = aux;
+            aux = aux->left;
+        }
+        else aux = aux->right; // si no es resulta siendo el upperbound seguimos buscando en el sub arbol derecho
+    }
+    if (ub_node != NULL){
+        tree->current = ub_node;
+        return ub_node->pair; // si encontramos un upperbound valido, retornamos su pair
+    }
+    return NULL; // si no hay una key igual o mayor, retornamos NULL
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
